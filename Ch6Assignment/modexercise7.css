@@ -6,11 +6,11 @@ a {
 
 a:hover {
     text-decoration: none;
-    color: darkgreen;
+    color: #c0a81d;
 }
 
 a:visited {
-    background-color: lightgreen;
+    background-color: #c0a81d;
 }
 
 footer {
@@ -43,7 +43,7 @@ h1 {
 
 #section {
     font-size: small;
-    color: red;
+    color: rgb(0, 0, 0);
     font-family: Arial;
     background-color: #ffffff; 
     width: 80%;
