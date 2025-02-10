@@ -1,17 +1,16 @@
 a {
     text-decoration: underline;
     color: blue;
-    background-color: orange;
+    background-color: lightyellow;
 }
 
 a:hover {
     text-decoration: none;
-    color: #8f8ad4;
-    background-color: green;
+    color: #c7b23d;
 }
 
 a:visited {
-    background-color: #c7b23d;
+    background-color: #7a787a;
 }
 
 footer {
