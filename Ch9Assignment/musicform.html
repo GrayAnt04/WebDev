@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Survey Form</title>
+</head>
+<body>
+    <h1>Music Listening Survey</h1>
+    <form action="#" method="post">
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+        </fieldset>
+        <br>
+
+        <!-- Music Preferences -->
+        <fieldset>
+            <legend>Music Preferences</legend>
+
+            <label for="comments">Tell us about your favorite music:</label><br>
+            <textarea id="comments" name="comments" rows="3" cols="60"></textarea><br><br>
+
+            <label>How often do you listen to music?</label><br>
+            <input type="radio" id="daily" name="frequency" value="daily">
+            <label for="daily">Daily</label><br>
+
+            <input type="radio" id="weekly" name="frequency" value="weekly">
+            <label for="weekly">A few times a week</label><br>
+
+            <input type="radio" id="rarely" name="frequency" value="rarely">
+            <label for="rarely">Rarely</label>
+        </fieldset>
+        <br>
+
+        <!-- Favorite Genre -->
+        <fieldset>
+            <legend>Favorite Music Genre</legend>
+            <label for="genre">Choose your favorite genre:</label><br>
+            <select id="genre" name="genre" size="3">
+                <option value="rock">Rock</option>
+                <option value="pop">Pop</option>
+                <option value="hiphop">Alternative</option>
+                <option value="jazz">Jazz</option>
+                <option value="classical">Classical</option>
+                <option value="hiphop">Rap</option>
+            </select>
+        </fieldset>
+        <br>
+
+        <!-- Listening Date -->
+        <fieldset>
+            <legend>Listening Date</legend>
+            <label for="listenDate">When did you last listen to music?</label>
+            <input type="date" id="listenDate" name="listenDate">
+        </fieldset>
+        <br>
+
+        <!-- Form Buttons -->
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+</body>
+</html>
