@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Properties</title>
   <style>
     body {
@@ -73,18 +73,23 @@
       border-radius: 4px;
     }
     button {
-      width: 100%;
       padding: 0.5rem;
       background-color: #2c3e50;
       color: white;
       border: none;
       border-radius: 4px;
       cursor: pointer;
+      margin-top: 0.5rem;
     }
     button:hover {
       background-color: #34495e;
     }
-
+    .inline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
     @media (max-width: 768px) {
       nav {
         position: relative;
@@ -109,18 +114,19 @@
   </style>
 </head>
 <body>
+
   <header>
     <h1>Rent Wise Landlord Portal</h1>
   </header>
 
   <nav>
     <ul>
-      <li><a href="dashboard.html" style="color:white;">Dashboard</a></li>
-      <li><a href="properties.html" style="color:white;">Properties</a></li>
-      <li><a href="tenants.html" style="color:white;">Tenants</a></li>
-      <li><a href="payments.html" style="color:white;">Payments</a></li>
-      <li><a href="settings.html" style="color:white;">Settings</a></li>
-      <li><a href="logout.html" style="color:white;">Logout</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="properties.html">Properties</a></li>
+      <li><a href="tenants.html">Tenants</a></li>
+      <li><a href="payments.html">Payments</a></li>
+      <li><a href="settings.html">Settings</a></li>
+      <li><a href="logout.html">Logout</a></li>
     </ul>
   </nav>
 
@@ -128,21 +134,19 @@
     <section class="card">
       <h2>Properties</h2>
 
-      <!-- Property List (This will appear above the form) -->
-      <div class="property-list" id="property-list">
-        <!-- Properties will appear here -->
-      </div>
+      <!-- Property List -->
+      <div class="property-list" id="property-list"></div>
 
       <!-- Add Property Form -->
       <form id="property-form">
         <label for="property-name">Property Name</label>
-        <input type="text" id="property-name" placeholder="Enter property name" required />
+        <input type="text" id="property-name" required placeholder="123 Main St" />
 
         <label for="property-beds">Number of Beds</label>
-        <input type="number" id="property-beds" placeholder="Enter number of beds" required />
+        <input type="number" id="property-beds" required placeholder="2" />
 
         <label for="property-baths">Number of Baths</label>
-        <input type="number" id="property-baths" placeholder="Enter number of baths" required />
+        <input type="number" id="property-baths" required placeholder="1" />
 
         <label for="property-status">Status</label>
         <select id="property-status" required>
@@ -156,51 +160,62 @@
   </main>
 
   <script>
-    // Load stored properties from localStorage and display them
     function loadProperties() {
       const properties = JSON.parse(localStorage.getItem('properties')) || [];
-      const propertyList = document.getElementById("property-list");
-      propertyList.innerHTML = ""; // Clear the list before repopulating
+      const list = document.getElementById("property-list");
+      list.innerHTML = "";
 
-      properties.forEach(property => {
-        const propertyCard = document.createElement("div");
-        propertyCard.classList.add("card");
-
-        propertyCard.innerHTML = `
-          <h3>${property.name}</h3>
-          <p>${property.beds} Bed / ${property.baths} Bath</p>
-          <p>Status: ${property.status.charAt(0).toUpperCase() + property.status.slice(1)}</p>
+      properties.forEach((p, index) => {
+        const div = document.createElement("div");
+        div.className = "card";
+        div.innerHTML = `
+          <h3>${p.name}</h3>
+          <p>${p.beds} Bed / ${p.baths} Bath</p>
+          <div class="inline">
+            <label>Status:</label>
+            <select data-index="${index}" class="status-dropdown">
+              <option value="occupied" ${p.status === "occupied" ? "selected" : ""}>Occupied</option>
+              <option value="vacant" ${p.status === "vacant" ? "selected" : ""}>Vacant</option>
+            </select>
+          </div>
+          <button onclick="deleteProperty(${index})">Delete</button>
         `;
-        
-        propertyList.appendChild(propertyCard);
+        list.appendChild(div);
+      });
+
+      document.querySelectorAll(".status-dropdown").forEach(dropdown => {
+        dropdown.addEventListener("change", function() {
+          const index = this.getAttribute("data-index");
+          const properties = JSON.parse(localStorage.getItem('properties')) || [];
+          properties[index].status = this.value;
+          localStorage.setItem('properties', JSON.stringify(properties));
+        });
       });
     }
 
-    // Add new property and update localStorage
-    document.getElementById("property-form").addEventListener("submit", function(event) {
-      event.preventDefault();
+    function deleteProperty(index) {
+      const properties = JSON.parse(localStorage.getItem('properties')) || [];
+      properties.splice(index, 1);
+      localStorage.setItem('properties', JSON.stringify(properties));
+      loadProperties();
+    }
 
+    document.getElementById("property-form").addEventListener("submit", e => {
+      e.preventDefault();
       const name = document.getElementById("property-name").value;
       const beds = document.getElementById("property-beds").value;
       const baths = document.getElementById("property-baths").value;
       const status = document.getElementById("property-status").value;
 
-      // Create new property object
       const newProperty = { name, beds, baths, status };
-
-      // Get existing properties from localStorage and add the new one
       const properties = JSON.parse(localStorage.getItem('properties')) || [];
       properties.push(newProperty);
-
-      // Save updated properties to localStorage
       localStorage.setItem('properties', JSON.stringify(properties));
 
-      // Reset the form and reload properties
       document.getElementById("property-form").reset();
       loadProperties();
     });
 
-    // Initial load of properties from localStorage
     loadProperties();
   </script>
 
