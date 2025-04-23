@@ -1,79 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>RentWise Solutions</title>
-<meta charset="utf-8">
-<style>
-* { box-sizing: border-box; }
-body {font-family:  Arial, sans-serif;
-      margin: 0;
-}
+  <title>RentWise Solutions</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * { box-sizing: border-box; }
 
-header { background-image: url(header2.jpg);
-         background-size: cover;
-         background-repeat: no-repeat;   
-}
+    body {font-family: Arial, sans-serif; margin: 0; display: flex; flex-direction: column; min-height: 100vh;}
 
-header { grid-area: header; }
-nav    { grid-area: nav; }
-main   { grid-area: main; }
-aside  { grid-area: aside; }
-footer { grid-area: footer; }
-#wrapper { display: grid; grid-template-rows: 100px auto 50px; grid-template-columns: 150px 1fr 30%; grid-template-areas: "header  header header" "nav     main   aside" "footer  footer footer"  ; }
-	
-h2 { color: #2c2c54; }
+    #wrapper {display: grid; grid-template-rows: auto 1fr auto; grid-template-columns: 150px 1fr 30%; grid-template-areas: "header header header" "nav main aside" "footer footer footer"; flex: 1;}
 
-h1 { text-align: center;
-	color: #34495E ;
-	font-size: 300%;   
-}
-nav { font-size: 120%; }
-nav ul { padding-left: 0; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }	  
-nav ul { list-style-type: none; }
-nav li { width: 20%; min-width: 6em; font-size: 110%; text-align: center; background-color: #003C58;  margin: .5em; padding: .5em; }
-nav a { text-decoration: none;}
-nav a:link { color: #F7F1E3; }
-nav a:visited { color: #B9EDF0; }
-nav a:hover { color: #FFFFFF; }
+    header {grid-area: header; background-image: url(header2.jpg); background-size: cover; background-repeat: no-repeat;}
 
-aside {  padding: 1em;}
+    nav {grid-area: nav; font-size: 120%;}
+    nav ul {list-style-type: none; padding-left: 0; display: flex; flex-wrap: wrap; justify-content: space-around;}
+    nav li {width: 20%; min-width: 6em; font-size: 110%; text-align: center; background-color: #003C58; margin: .5em; padding: .5em;}
+    nav a {text-decoration: none;}
+    nav a:link {color: #F7F1E3;}
+    nav a:visited {color: #B9EDF0;}
+    nav a:hover {color: #FFFFFF;}
 
-main {   padding: 0 1em 1em;    }
+    main {grid-area: main; padding: 0 1em 1em;}
 
-footer { background-color: #CCCCCC; text-align: center; font-style: italic; padding: 1em; }  
+    aside {grid-area: aside; padding: 1em;}
 
-.resized-img { width: 100%; max-width: 300px; height: auto;}
-</style>
+    footer {grid-area: footer; background-color: #CCCCCC; text-align: center; font-style: italic; padding: 1em;}
+
+    h1 {text-align: center; color: #34495E; font-size: 300%;}
+    h2 {color: #2c2c54;}
+
+    .resized-img {width: 100%; max-width: 300px; height: auto;}
+
+    @media (max-width: 768px) {
+      #wrapper {grid-template-columns: 1fr; grid-template-areas: "header" "nav" "main" "aside" "footer";}
+
+      nav ul {flex-direction: column; align-items: center;}
+      nav li {width: 90%;}
+
+      aside {padding-top: 0;}
+    }
+  </style>
 	
 </head>
 <body>
-<div id="wrapper">
-  <header>
-    <h1>RentWise Solutions</h1>
-  </header>  
-  <nav>
-    <ul>
-	<li><a href="login.html">Login</a></li>
-    </ul> 
-   </nav>
-    <main>   
-	<h2>Empowering Independent Landlords</h2>
-    <p>At RentWise Solutions, we simplify rental management for independent landlords, real estate investors, and property owners. From seamless property tracking to tenant communications and financial oversight, everything youneed is in one intuitive platform.</p>   
-	<h2>Effortless Property Oversight </h2>
-    <p>Manage your rental portfolio with confidence using our integrated dashboard. Whether you own one property or several, RentWise adapts to your needs with flexible subscription plans and tools that scale with you.</p>
-  	<h2>About the Team</h2>
-    <p>We're a small team with a big mission: to redefine rental management for the everyday landlord. With backgrounds in service design, development, and real estate, our goal is to help you spend less time stressing and more time succeeding.</p>
-	<h2>Why RentWise is Better</h2>
-	<p>Compared to other platforms like AppFolio, Buildium, & TenantCloud, RentWise stands out with community and vendor integration, smart, streamlined rental management, faster load times and cleaner UI.</p>
-   </main> 
-      <aside>
-     <img src="rentwise2.jpg"  alt="RentWise home page and features" class="resized-img">
-
-	 <h2>RentWise Dashboard</h2>
-	 <p>Our platform features a modern interface, transparent pricing with no hidden fees, & streamlined tools to post listings, screen tenants, & collect rent. All built with your ease-of-use in mind.</p>
-   </aside>
-   <footer>Copyright &copy; 2025
-   </footer>
-</div>
+  <div id="wrapper">
+    <header>
+      <h1>RentWise Solutions</h1>
+    </header>
+    <nav>
+      <ul>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </nav>
+    <main>
+      <h2>Empowering Independent Landlords</h2>
+      <p>At RentWise Solutions, we simplify rental management for independent landlords, real estate investors, and property owners...</p>
+      <h2>Effortless Property Oversight</h2>
+      <p>Manage your rental portfolio with confidence using our integrated dashboard...</p>
+      <h2>About the Team</h2>
+      <p>We're a small team with a big mission: to redefine rental management...</p>
+      <h2>Why RentWise is Better</h2>
+      <p>Compared to other platforms like AppFolio, Buildium, & TenantCloud...</p>
+    </main>
+    <aside>
+      <img src="rentwise2.jpg" alt="RentWise home page and features" class="resized-img">
+      <h2>RentWise Dashboard</h2>
+      <p>Our platform features a modern interface, transparent pricing with no hidden fees...</p>
+    </aside>
+    <footer>
+      Copyright &copy; 2025
+    </footer>
+  </div>
 </body>
 </html>
