@@ -19,64 +19,32 @@ nav    { grid-area: nav; }
 main   { grid-area: main; }
 aside  { grid-area: aside; }
 footer { grid-area: footer; }
-#wrapper { display: grid;
-                    grid-template-rows: 100px auto 50px;
-                    grid-template-columns: 150px 1fr 30%;
-                    grid-template-areas: 
-     					 "header  header header"
-						 "nav     main   aside" 
-     					 "footer  footer footer"  ; }
-
-
-
-
+#wrapper { display: grid; grid-template-rows: 100px auto 50px; grid-template-columns: 150px 1fr 30%; grid-template-areas: "header  header header" "nav     main   aside" "footer  footer footer"  ; }
+	
 h2 { color: #2c2c54; }
 
-
 h1 { text-align: center;
-     color: #34495E ;
-
-	 font-size: 300%;
-    
+	color: #34495E ;
+	font-size: 300%;   
 }
-nav {   font-size: 120%; }
-
-nav ul { padding-left: 0;
-         display: flex; 
-	     flex-direction: row; 
-	     flex-wrap: wrap; 
-	     justify-content: space-around; }	  
+nav { font-size: 120%; }
+nav ul { padding-left: 0; display: flex; flex-direction: row; flex-wrap: wrap; justify-content: space-around; }	  
 nav ul { list-style-type: none; }
-nav li { width: 20%;
-		 min-width: 6em;
-	     font-size: 110%;
-		 text-align: center;
-		 background-color: #003C58; 
-		 margin: .5em;
-		 padding: .5em; }
+nav li { width: 20%; min-width: 6em; font-size: 110%; text-align: center; background-color: #003C58;  margin: .5em; padding: .5em; }
 nav a { text-decoration: none;}
 nav a:link { color: #F7F1E3; }
 nav a:visited { color: #B9EDF0; }
 nav a:hover { color: #FFFFFF; }
 
-
 aside {  padding: 1em;}
 
 main {   padding: 0 1em 1em;    }
 
-footer { background-color: #CCCCCC;
-        text-align: center;
-		 font-style: italic;
-		 padding: 1em; }
+footer { background-color: #CCCCCC; text-align: center; font-style: italic; padding: 1em; }  
 
-      
-
-.resized-img {
-  width: 100%;
-  max-width: 300px;
-  height: auto;
-}
+.resized-img { width: 100%; max-width: 300px; height: auto;}
 </style>
+	
 </head>
 <body>
 <div id="wrapper">
@@ -85,8 +53,8 @@ footer { background-color: #CCCCCC;
   </header>  
   <nav>
     <ul>
-		<li><a href="https://grayant04.github.io/WebDev/Rentwise/login.html" target="_blank">Login</a></li>
-	</ul> 
+	<li><a href="login.html">Login</a></li>
+    </ul> 
    </nav>
     <main>   
 	<h2>Empowering Independent Landlords</h2>
@@ -99,7 +67,7 @@ footer { background-color: #CCCCCC;
 	<p>Compared to other platforms like AppFolio, Buildium, & TenantCloud, RentWise stands out with community and vendor integration, smart, streamlined rental management, faster load times and cleaner UI.</p>
    </main> 
       <aside>
-     <img src="mypractice/homepage.png"  alt="RentWise home page and features" class="resized-img">
+     <img src="rentwise2.jpg"  alt="RentWise home page and features" class="resized-img">
 
 	 <h2>RentWise Dashboard</h2>
 	 <p>Our platform features a modern interface, transparent pricing with no hidden fees, & streamlined tools to post listings, screen tenants, & collect rent. All built with your ease-of-use in mind.</p>
